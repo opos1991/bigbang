@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>试题查询界面</title>
+</head>
+<body>
+<!--
+    <form action="{% url 'exam' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="question">请输入试题题目：</label>
+            <textarea name="text" id="question" cols="30" rows="10"></textarea>
+        </div>
+        <input type="submit" value="查询">
+    </form>
+-->
+    {% for q in question %}
+        <p>搜索试题答案为：{{ q.answer }}</p>
+    {% endfor %}
+    {% for key,value in tp.items %}
+       <div>
+            <p>试题{{ key }}:</p>
+           {% for foo in value %}
+               <p>{{ foo.question }}</p>
+               <p>试题答案为：{{ foo }}</p>
+           {% endfor %}
+        </div> 
+    {% endfor %}
+</body>
+</html>
